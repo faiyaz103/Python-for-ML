@@ -35,3 +35,25 @@ print(arr.ndim)
 # 3rd Dimenstion: 2D array/matrix
 # 4th Dimenstion: vector
 # 5th Dimenstion: 4 elements (innermost)
+
+# NumPy Array Copy vs View
+# copy is a new array, and the view is just a view of the original array.
+# copy owns the data and any changes made to the copy will not affect original array
+# any changes made to the original array will not affect the copy.
+
+# The view does not own the data and any changes made to the view will affect the original array
+# any changes made to the original array will affect the view.
+arr = np.array([1,2,3,4,5])
+x=arr.copy()
+arr[0]=34
+print(arr)
+print(x)
+
+x=arr.view()
+arr[0]=12
+print(arr)
+print(x)
+
+x[0]=90
+print(arr)
+print(x)
